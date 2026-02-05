@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Needs Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+
+    <!-- 🔵 ADDED: BADGE ICON (top-left corner) -->
+    <a href="badges.html" class="badge-link" title="View Community Badges">
+        <img src="img/img2.png" alt="Community Badges">
+    </a>
+    <!-- 🔵 END ADD -->
+
+    <div class="hero-content">
+
+        <!-- 🔵 ADDED: HERO BADGE TEXT -->
+        <span class="hero-badge">Community Driven Platform</span>
+        <!-- 🔵 END ADD -->
+
+        <h1>Local Needs Hub</h1>
+        <p>Turning Community Problems into Collective Action</p>
+        <div class="hero-buttons">
+            <a href="#needs">Explore Needs</a>
+            <a href="#volunteer" class="secondary">Join Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- NEEDS -->
+<section id="needs" class="section">
+    <h2>Community Needs</h2>
+    <p class="section-subtitle">Critical challenges faced by our local community</p>
+
+    <div class="grid">
+        <div class="need-card">
+            <h3>🚰 Clean Water</h3>
+            <p>Access to safe drinking water remains a challenge for many families.</p>
+            <a href="water.html" class="action-btn">Take Action</a>
+        </div>
+
+        <div class="need-card">
+            <h3>📚 Education</h3>
+            <p>Children lack learning resources and academic support.</p>
+            <a href="education.html" class="action-btn">Take Action</a>
+        </div>
+
+        <div class="need-card">
+            <h3>♻️ Waste Management</h3>
+            <p>Poor waste disposal affects health and environment.</p>
+            <a href="waste.html" class="action-btn">Take Action</a>
+        </div>
+
+        <div class="need-card">
+            <h3>🏥 Health & Hygiene</h3>
+            <p>Preventable illnesses due to lack of awareness and facilities.</p>
+            <a href="health.html" class="action-btn">Take Action</a>
+        </div>
+    </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer" class="section dark">
+    <h2>Become a Volunteer</h2>
+    <p class="section-subtitle">Your time can change lives</p>
+
+    <form class="volunteer-form" id="volunteerForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Skills / Interests">
+        <button type="submit">Join the Movement</button>
+    </form>
+</section>
+
+<!-- DONATE -->
+<section id="donate" class="section">
+    <h2>Support the Cause</h2>
+    <p class="section-subtitle">Every contribution makes a difference</p>
+
+    <div class="donate-box">
+        <p>We accept books, clothes, food supplies, and volunteer support.</p>
+        <a href="#" class="action-btn" id="openDonateModal">Get in Touch</a>
+    </div>
+</section>
+
+<!-- IMPACT -->
+<section class="section impact">
+    <h2>Our Impact</h2>
+
+    <div class="impact-grid">
+        <div class="impact-card">
+            <h3>120+</h3>
+            <p>People Reached</p>
+        </div>
+        <div class="impact-card">
+            <h3>35</h3>
+            <p>Volunteers</p>
+        </div>
+        <div class="impact-card">
+            <h3>3</h3>
+            <p>Clean-Up Drives</p>
+        </div>
+        <div class="impact-card">
+            <h3>50</h3>
+            <p>Children Supported</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Local Needs Hub | Community Engagement Program</p>
+</footer>
+
+<!-- GET IN TOUCH MODAL -->
+<div class="modal" id="donateModal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeDonateModal">&times;</span>
+
+        <h2>Get in Touch</h2>
+        <p class="section-subtitle">Tell us how you would like to support</p>
+
+        <form id="donateForm">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="tel" placeholder="Mobile Number" required>
+
+            <select required>
+                <option value="">What do you want to donate?</option>
+                <option>Books</option>
+                <option>Clothes</option>
+                <option>Food Supplies</option>
+                <option>Volunteer Support</option>
+                <option>Other</option>
+            </select>
+
+            <textarea placeholder="Additional information (quantity, ideas, pickup location, etc.)"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f7fb;
+    color: #333;
+}
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: url('img/img1.jpg') center top / cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.55));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+}
+
+.hero p {
+    margin: 20px 0 30px;
+    font-size: 1.2rem;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    margin: 10px;
+    background: white;
+    color: #2c7be5;
+    font-weight: 600;
+}
+
+.hero-buttons .secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+/* ================= SECTION ================= */
+.section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* ================= GRID ================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.need-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+/* ================= BUTTON ================= */
+.action-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 22px;
+    background: #2c7be5;
+    color: white;
+    text-decoration: none;
+    border-radius: 22px;
+}
+
+/* ================= VOLUNTEER ================= */
+.dark {
+    background: #1f2933;
+    color: white;
+}
+
+.volunteer-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.volunteer-form input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    min-width: 260px;
+}
+
+.volunteer-form button {
+    padding: 12px 34px;
+    background: #6a11cb;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ================= DONATE ================= */
+.donate-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* ================= IMPACT ================= */
+.impact {
+    background: linear-gradient(135deg, #6a11cb, #2c7be5);
+    color: white;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.impact-card {
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 18px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #111;
+    color: white;
+    padding: 20px;
+}
+
+/* ================= MODAL ================= */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.modal-content textarea {
+    resize: none;
+    height: 80px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background: #2c7be5;
+    color: white;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ================= BADGE ICON (TOP-LEFT HERO) ================= */
+.badge-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+}
+
+.badge-link img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(255,255,255,0.9);
+    padding: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.badge-link img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 18px rgba(0,0,0,0.4);
+}
+
+/* ================= HERO BADGE TEXT ================= */
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
