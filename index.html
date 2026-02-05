@@ -8,23 +8,26 @@
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
+    <!-- Caution / Report Issue Button -->
+    <!-- Caution / Report Issue Icon -->
+    <img src="img/caution.png" alt="Report Issue"
+     id="openReport"
+     class="report-icon">
 
-    <!-- 🔵 ADDED: BADGE ICON (top-left corner) -->
+
+
+    <!-- BADGE ICON -->
     <a href="badges.html" class="badge-link" title="View Community Badges">
         <img src="img/img2.png" alt="Community Badges">
     </a>
-    <!-- 🔵 END ADD -->
 
     <div class="hero-content">
-
-        <!-- 🔵 ADDED: HERO BADGE TEXT -->
         <span class="hero-badge">Community Driven Platform</span>
-        <!-- 🔵 END ADD -->
-
         <h1>Local Needs Hub</h1>
         <p>Turning Community Problems into Collective Action</p>
+
         <div class="hero-buttons">
             <a href="#needs">Explore Needs</a>
             <a href="#volunteer" class="secondary">Join Us</a>
@@ -32,52 +35,50 @@
     </div>
 </section>
 
-<!-- NEEDS -->
-<section id="needs" class="section">
+<!-- ================= COMMUNITY NEEDS (SPLIT + SLIDER) ================= -->
+<section id="needs" class="section needs-slider">
+
     <h2>Community Needs</h2>
     <p class="section-subtitle">Critical challenges faced by our local community</p>
 
-    <div class="grid">
-        <div class="need-card">
-            <h3>🚰 Clean Water</h3>
-            <p>Access to safe drinking water remains a challenge for many families.</p>
-            <a href="water.html" class="action-btn">Take Action</a>
+    <div class="slider-container">
+
+        <button class="nav-btn left" onclick="prevSlide()">&#10094;</button>
+
+        <div class="slider-image">
+            <img id="needImage" src="img/water.jpg" alt="Community Need">
         </div>
 
-        <div class="need-card">
-            <h3>📚 Education</h3>
-            <p>Children lack learning resources and academic support.</p>
-            <a href="education.html" class="action-btn">Take Action</a>
+        <div class="slider-content">
+            <h3 id="needTitle">Clean Water</h3>
+            <p id="needText">
+                Access to safe drinking water remains a challenge for many families.
+            </p>
+            <a id="needLink" href="water.html" class="action-btn">Take Action</a>
         </div>
 
-        <div class="need-card">
-            <h3>♻️ Waste Management</h3>
-            <p>Poor waste disposal affects health and environment.</p>
-            <a href="waste.html" class="action-btn">Take Action</a>
-        </div>
+        <button class="nav-btn right" onclick="nextSlide()">&#10095;</button>
 
-        <div class="need-card">
-            <h3>🏥 Health & Hygiene</h3>
-            <p>Preventable illnesses due to lack of awareness and facilities.</p>
-            <a href="health.html" class="action-btn">Take Action</a>
-        </div>
     </div>
 </section>
 
-<!-- VOLUNTEER -->
+<!-- ================= VOLUNTEER ================= -->
 <section id="volunteer" class="section dark">
     <h2>Become a Volunteer</h2>
     <p class="section-subtitle">Your time can change lives</p>
 
-    <form class="volunteer-form" id="volunteerForm">
+    <form class="volunteer-form">
         <input type="text" placeholder="Full Name" required>
         <input type="email" placeholder="Email Address" required>
         <input type="text" placeholder="Skills / Interests">
-        <button type="submit">Join the Movement</button>
+       <button class="btn-primary btn-purple">
+         Join the Movement
+        </button>
+
     </form>
 </section>
 
-<!-- DONATE -->
+<!-- ================= DONATE ================= -->
 <section id="donate" class="section">
     <h2>Support the Cause</h2>
     <p class="section-subtitle">Every contribution makes a difference</p>
@@ -88,7 +89,7 @@
     </div>
 </section>
 
-<!-- IMPACT -->
+<!-- ================= IMPACT ================= -->
 <section class="section impact">
     <h2>Our Impact</h2>
 
@@ -112,12 +113,12 @@
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer>
     <p>© 2026 Local Needs Hub | Community Engagement Program</p>
 </footer>
 
-<!-- GET IN TOUCH MODAL -->
+<!-- ================= DONATION MODAL ================= -->
 <div class="modal" id="donateModal">
     <div class="modal-content">
         <span class="close-btn" id="closeDonateModal">&times;</span>
@@ -125,7 +126,7 @@
         <h2>Get in Touch</h2>
         <p class="section-subtitle">Tell us how you would like to support</p>
 
-        <form id="donateForm">
+        <form>
             <input type="text" placeholder="Full Name" required>
             <input type="email" placeholder="Email Address" required>
             <input type="tel" placeholder="Mobile Number" required>
@@ -139,10 +140,44 @@
                 <option>Other</option>
             </select>
 
-            <textarea placeholder="Additional information (quantity, ideas, pickup location, etc.)"></textarea>
+            <textarea placeholder="Additional information"></textarea>
+            <button type="submit" class="btn-primary">
+             Submit
+        </button>
 
-            <button type="submit">Submit</button>
         </form>
+    </div>
+</div>
+<!-- REPORT ISSUE MODAL -->
+<div class="report-modal" id="reportModal">
+    <div class="report-box">
+
+        <span class="close-report" id="closeReport">&times;</span>
+
+        <h2>Report a Local Issue</h2>
+        <p class="report-subtitle">
+            Facing a problem in your nearby area? Let us know.
+        </p>
+
+        <form class="report-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Location / Area" required>
+
+            <select required>
+                <option value="">Type of Issue</option>
+                <option>Water Problem</option>
+                <option>Waste / Garbage</option>
+                <option>Health & Hygiene</option>
+                <option>Education</option>
+                <option>Other</option>
+            </select>
+
+            <textarea placeholder="Describe the problem briefly..." required></textarea>
+
+            <button type="submit">Submit Report</button>
+        </form>
+
     </div>
 </div>
 
