@@ -146,6 +146,37 @@
         </div>
     </div>
 </section>
+<!-- ================= REPORT MODAL ================= -->
+<div class="report-modal" id="reportModal">
+    <div class="report-box">
+
+        <span class="close-report" id="closeReport">&times;</span>
+
+        <h2>Report a Local Issue</h2>
+        <p class="report-subtitle">
+            Facing a problem in your nearby area? Let us know.
+        </p>
+
+        <form id="reportForm" class="report-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="text" id="location" placeholder="Location" required>
+
+            <select id="issueType" required>
+                <option value="" disabled selected>Select Issue Type</option>
+                <option value="Waste">Waste</option>
+                <option value="Water">Water</option>
+                <option value="Road">Road</option>
+                <option value="Electricity">Electricity</option>
+            </select>
+
+            <textarea id="description" placeholder="Describe the issue" required></textarea>
+
+            <button type="submit">Submit Report</button>
+        </form>
+
+    </div>
+</div>
 
 
 <!-- ================= FOOTER ================= -->
