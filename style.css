@@ -172,24 +172,6 @@ footer {
 }
 
 /* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 999;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-content {
-    background: white;
-    padding: 35px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 450px;
-}
-
 /* ================= SLIDER ================= */
 .needs-slider {
     background: #f4f7fb;
@@ -241,28 +223,39 @@ footer {
 }
 
 /* ================= DONATE MODAL ENHANCED STYLING ================= */
-
-.modal {
-    display: none;
+.donate-modal {
+    display: none;               /* 👈 stays hidden on load */
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 999;
-    display: flex;
-    align-items: center;
+    background: rgba(0,0,0,0.6);
     justify-content: center;
+    align-items: center;
+    z-index: 999;
 }
 
-/* Smooth popup */
-.modal-content {
-    background: white;
+.donate-box-modal {
+    background: #fff;
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 22px;
     width: 90%;
     max-width: 520px;
     position: relative;
-    animation: popUp 0.35s ease;
 }
+
+/* ❌ close button */
+.close-modal {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
 
 /* Animation */
 @keyframes popUp {
@@ -803,6 +796,240 @@ body {
 
     .report-form textarea,
     .report-form button {
+        grid-column: span 1;
+    }
+}
+
+/* ================= REPORT ISSUE MODAL ================= */
+/*////////////////////////
+/* Close button */
+/* Headings */
+.report-box h2 {
+  margin-bottom: 6px;
+  font-size: 1.6rem;
+}
+
+.report-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+/* Form layout */
+#reportForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+#reportForm textarea,
+#reportForm select {
+  grid-column: span 2;
+}
+
+/* Inputs */
+#reportForm input,
+#reportForm select,
+#reportForm textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#reportForm textarea {
+  resize: none;
+  height: 90px;
+}
+
+#reportForm input:focus,
+#reportForm select:focus,
+#reportForm textarea:focus {
+  border-color: #2c7be5;
+  box-shadow: 0 0 0 2px rgba(44, 123, 229, 0.15);
+}
+
+/* Submit button */
+#reportForm button {
+  grid-column: span 2;
+  margin-top: 8px;
+  padding: 13px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #2c7be5, #1a5fd0);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#reportForm button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(44, 123, 229, 0.35);
+}
+.donate-modal {
+    display: none;           /* IMPORTANT */
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.close-modal {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#contactForm button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #2c7be5, #1a5fd0);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#contactForm button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(44, 123, 229, 0.35);
+}
+
+/* ===== DONATE MODAL OVERLAY ===== */
+.donate-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== MODAL BOX ===== */
+.donate-box-modal {
+    background: #ffffff;
+    width: 90%;
+    max-width: 560px;
+    padding: 36px 40px 40px;
+    border-radius: 28px;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    animation: popUp 0.35s ease;
+}
+
+/* Animation */
+@keyframes popUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===== CLOSE BUTTON ===== */
+.close-modal {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #777;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* ===== TITLE ===== */
+.donate-box-modal h2 {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+/* ===== FORM LAYOUT ===== */
+#contactForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+/* Full width fields */
+#contactForm textarea,
+#contactForm select,
+#contactForm button {
+    grid-column: span 2;
+}
+
+/* ===== INPUTS ===== */
+#contactForm input,
+#contactForm select,
+#contactForm textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+/* Focus effect */
+#contactForm input:focus,
+#contactForm select:focus,
+#contactForm textarea:focus {
+    border-color: #2c7be5;
+    box-shadow: 0 0 0 3px rgba(44,123,229,0.15);
+}
+
+/* Textarea */
+#contactForm textarea {
+    resize: none;
+    height: 90px;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+#contactForm button {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #2c7be5, #1a5fd0);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#contactForm button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(44,123,229,0.35);
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 520px) {
+    #contactForm {
+        grid-template-columns: 1fr;
+    }
+
+    #contactForm textarea,
+    #contactForm select,
+    #contactForm button {
         grid-column: span 1;
     }
 }
