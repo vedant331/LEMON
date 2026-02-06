@@ -62,46 +62,187 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ================= DONATE MODAL ================= */
 
     const openDonateBtn = document.getElementById("openDonateModal");
-    const donateModal = document.getElementById("donateModal");
-    const closeDonateBtn = document.getElementById("closeDonateModal");
+const donateModal = document.getElementById("donateModal");
+const closeDonateBtn = document.getElementById("closeDonateModal");
 
-    if (openDonateBtn && donateModal && closeDonateBtn) {
+/* OPEN MODAL */
+if (openDonateBtn) {
+    openDonateBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        donateModal.style.display = "flex";
+    });
+}
 
-        openDonateBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            donateModal.style.display = "flex";
+/* CLOSE BY X BUTTON */
+if (closeDonateBtn) {
+    closeDonateBtn.addEventListener("click", () => {
+        donateModal.style.display = "none";
+    });
+}
+
+/* CLOSE BY CLICKING OUTSIDE */
+window.addEventListener("click", (e) => {
+    if (e.target === donateModal) {
+        donateModal.style.display = "none";
+    }
+});
+
+/* CLOSE BY ESC KEY (PRO LEVEL UX) */
+window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        donateModal.style.display = "none";
+    }
+});
+
+
+    /* ================= REPORT MODAL ================= */
+
+    const openReport = document.getElementById("openReport");
+    const reportModal = document.getElementById("reportModal");
+    const closeReport = document.getElementById("closeReport");
+
+    if (openReport && reportModal && closeReport) {
+        openReport.addEventListener("click", () => {
+            reportModal.style.display = "flex";
         });
 
-        closeDonateBtn.addEventListener("click", function () {
-            donateModal.style.display = "none";
+        closeReport.addEventListener("click", () => {
+            reportModal.style.display = "none";
         });
 
-        window.addEventListener("click", function (e) {
-            if (e.target === donateModal) {
-                donateModal.style.display = "none";
+        window.addEventListener("click", (e) => {
+            if (e.target === reportModal) {
+                reportModal.style.display = "none";
             }
         });
     }
 
-});
-const openReport = document.getElementById("openReport");
-const reportModal = document.getElementById("reportModal");
-const closeReport = document.getElementById("closeReport");
+    /* ================= REPORT FORM SUBMIT ================= */
 
-// Open modal ONLY on click
-openReport.addEventListener("click", () => {
-    reportModal.style.display = "flex";
+    const reportForm = document.getElementById("reportForm");
+
+if (reportForm) {
+    reportForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            location: document.getElementById("location").value,
+            issueType: document.getElementById("issueType").value,
+            description: document.getElementById("description").value
+        };
+
+        try {
+            const res = await fetch("http://localhost:5000/api/report", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            alert(result.message);
+
+            reportForm.reset();
+            document.getElementById("reportModal").style.display = "none";
+
+        } catch (error) {
+            alert("❌ Failed to submit report. Try again.");
+        }
+    });
+}
+/* ================= VOLUNTEER FORM ================= */
+
+const volunteerForm = document.getElementById("volunteerForm");
+
+if (volunteerForm) {
+    volunteerForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: document.getElementById("volName").value,
+            email: document.getElementById("volEmail").value,
+            skills: document.getElementById("volSkills").value
+        };
+
+        try {
+            const res = await fetch("http://localhost:5000/api/volunteer", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            alert(result.message);
+
+            volunteerForm.reset();
+
+        } catch (error) {
+            alert("❌ Failed to register. Try again.");
+        }
+    });
+}
+ const contactForm = document.getElementById("contactForm");
+
+    if (!contactForm) return; // prevents errors on other pages
+
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: document.getElementById("contactName").value.trim(),
+            email: document.getElementById("contactEmail").value.trim(),
+            mobile: document.getElementById("contactMobile").value.trim(),
+            donationType: document.getElementById("donationType").value,
+            message: document.getElementById("contactMessage").value.trim()
+        };
+
+        console.log("Sending contact data:", data); // 🔍 DEBUG
+
+        try {
+            const res = await fetch("http://localhost:5000/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+
+            if (!res.ok) {
+                alert(result.message || "Something went wrong");
+                return;
+            }
+
+            alert(result.message);
+            contactForm.reset();
+            document.getElementById("donateModal").style.display = "none";
+
+        } catch (err) {
+            console.error(err);
+            alert("❌ Failed to submit");
+        }
+    });
+    function animateCounter(id, target, speed = 20) {
+    const el = document.getElementById(id);
+    let count = 0;
+
+    const interval = setInterval(() => {
+        count++;
+        el.innerText = count + (id === "peopleReached" ? "+" : "");
+        if (count >= target) clearInterval(interval);
+    }, speed);
+}
+
+// Run when page loads
+window.addEventListener("DOMContentLoaded", () => {
+    animateCounter("peopleReached", 4, 15);
+    animateCounter("volunteers", 3, 40);
+    animateCounter("cleanUps", 2, 200);
+    animateCounter("children", 6, 30);
 });
 
-// Close modal
-closeReport.addEventListener("click", () => {
-    reportModal.style.display = "none";
 });
-
-// Close when clicking outside
-window.addEventListener("click", (e) => {
-    if (e.target === reportModal) {
-        reportModal.style.display = "none";
-    }
-});
-
