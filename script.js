@@ -119,7 +119,7 @@ window.addEventListener("keydown", (e) => {
 
     /* ================= REPORT FORM SUBMIT ================= */
 
-    const reportForm = document.getElementById("reportForm");
+const reportForm = document.getElementById("reportForm");
 
 if (reportForm) {
     reportForm.addEventListener("submit", async (e) => {
